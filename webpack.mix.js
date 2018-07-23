@@ -1,4 +1,4 @@
 const mix = require('laravel-mix');
 
-mix.js('src/js/froala-emoji-picker.js', 'build/froala-emoji-picker.min.js')
-    .sass('src/scss/froala-emoji-picker.scss', 'build/froala-emoji-picker.min.css');
+mix.js('src/js/emoji-picker.js', 'build/emoji-picker.min.js')
+    .sass('src/scss/emoji-picker.scss', 'build/emoji-picker.min.css');

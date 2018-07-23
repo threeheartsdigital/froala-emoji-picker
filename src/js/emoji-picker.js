@@ -1,5 +1,5 @@
 /*!
- * EmailOctopus froalaEmojiPicker v1.0.0 (https://emailoctopus.com/)
+ * EmailOctopus EmojiPicker v1.0.0 (https://emailoctopus.com/)
  * License MIT
  * Copyright 2018 Three Hearts Digital
  */
@@ -7,7 +7,7 @@ $(function () {
     const EmojiData = require('./emoji-data.json');
 
     $.extend($.FroalaEditor.POPUP_TEMPLATES, {
-        "froalaEmojiPicker.popup": '[_CUSTOM_LAYER_]'
+        "emojiPicker.popup": '[_CUSTOM_LAYER_]'
     });
 
     /**
@@ -16,22 +16,22 @@ $(function () {
      * @param editor
      * @returns {{showPopup: *, hidePopup: *, setSelectedCategory: *}}
      */
-    $.FroalaEditor.PLUGINS.froalaEmojiPicker = function (editor) {
+    $.FroalaEditor.PLUGINS.emojiPicker = function (editor) {
         this.selectedCategory = EmojiData.categories[0];
         this.categories = EmojiData.categories;
 
         /**
          * Register our pop-up with the Froala editor.
          *
-         * @returns {froalaEmojiPicker.popup}
+         * @returns {emojiPicker.popup}
          */
         this.initPopup = () => {
-            const popup = editor.popups.create('froalaEmojiPicker.popup', {
+            const popup = editor.popups.create('emojiPicker.popup', {
                 custom_layer: this.getPopupHtml()
             });
 
             // Register our refresh callback with the editor
-            editor.popups.onRefresh('froalaEmojiPicker.popup', this.refreshPopup);
+            editor.popups.onRefresh('emojiPicker.popup', this.refreshPopup);
 
             return popup;
         };
@@ -43,7 +43,7 @@ $(function () {
          * @returns {string}
          */
         this.getPopupHtml = () => {
-            let customLayer = '<div class="froala-emoji-picker">';
+            let customLayer = '<div class="emoji-picker">';
             customLayer += this.getCategoryHtml();
             customLayer += this.getEmojiHtml();
             customLayer += '</div>';
@@ -67,7 +67,7 @@ $(function () {
                 html += `
                 <span class="fr-command emoji-category ${elementClass}"
                       title="${category.name}"
-                      data-cmd="froalaEmojiPicker.setCategory"
+                      data-cmd="emojiPicker.setCategory"
                       data-param1="${category.id}"
                 >`;
 
@@ -119,7 +119,7 @@ $(function () {
             this.selectedCategory.emojis.forEach(emoji => {
                 html += `<span class="fr-command emoji" 
                     role="button" 
-                    data-cmd="froalaEmojiPicker.insertEmoji" 
+                    data-cmd="emojiPicker.insertEmoji" 
                     data-param1="${emoji.value}"
                 >${emoji.value}</span>`;
             });
@@ -130,20 +130,20 @@ $(function () {
         };
 
         this.showPopup = () => {
-            if (!editor.popups.get('froalaEmojiPicker.popup')){
+            if (!editor.popups.get('emojiPicker.popup')){
                 this.initPopup();
             }
 
             // Set the editor toolbar as the popup's container.
-            editor.popups.setContainer('froalaEmojiPicker.popup', editor.$tb);
+            editor.popups.setContainer('emojiPicker.popup', editor.$tb);
 
             // Get the emoji picker button object in order to place the popup relative to it.
-            const $btn = editor.$tb.find('.fr-command[data-cmd="froalaEmojiPicker"]');
+            const $btn = editor.$tb.find('.fr-command[data-cmd="emojiPicker"]');
             const left = $btn.offset().left + $btn.outerWidth() / 2;
             const top = $btn.offset().top + (editor.opts.toolbarBottom ? 10 : $btn.outerHeight() - 10);
 
             // The button's outerHeight is required in case the popup needs to be displayed above it.
-            editor.popups.show('froalaEmojiPicker.popup', left, top, $btn.outerHeight());
+            editor.popups.show('emojiPicker.popup', left, top, $btn.outerHeight());
         };
 
         /**
@@ -151,11 +151,11 @@ $(function () {
          * when the selected category changes.
          */
         this.refreshPopup = () => {
-            editor.popups.get('froalaEmojiPicker.popup').html(this.getPopupHtml());
+            editor.popups.get('emojiPicker.popup').html(this.getPopupHtml());
         };
 
         this.hidePopup = () => {
-            editor.popups.hide('froalaEmojiPicker.popup');
+            editor.popups.hide('emojiPicker.popup');
         };
 
         /**
@@ -168,7 +168,7 @@ $(function () {
                 return category.id === categoryId;
             })[0];
 
-            editor.popups.refresh('froalaEmojiPicker.popup');
+            editor.popups.refresh('emojiPicker.popup');
         };
 
         return {
@@ -178,33 +178,33 @@ $(function () {
         }
     };
 
-    $.FroalaEditor.DefineIcon('froalaEmojiPicker', {
+    $.FroalaEditor.DefineIcon('emojiPicker', {
         NAME: 'smile-o',
         FA5NAME: 'smile'
     });
 
     /**
-     * This command is called when the froalaEmojiPicker button is called from
+     * This command is called when the emojiPicker button is called from
      * the Froala editor's toolbar. This will show the pop-up, if it's not
      * currently visible, or hide it if it's shown.
      */
-    $.FroalaEditor.RegisterCommand('froalaEmojiPicker', {
+    $.FroalaEditor.RegisterCommand('emojiPicker', {
         title: 'Emoticons',
         undo: false,
         focus: true,
         refreshOnCallback: false,
         popup: true,
-        plugin: 'froalaEmojiPicker',
+        plugin: 'emojiPicker',
         callback () {
-            if (!this.popups.isVisible('froalaEmojiPicker.popup')) {
-                this.froalaEmojiPicker.showPopup();
+            if (!this.popups.isVisible('emojiPicker.popup')) {
+                this.emojiPicker.showPopup();
             } else {
                 if (this.$el.find('.fr-marker')) {
                     this.events.disableBlur();
                     this.selection.restore();
                 }
 
-                this.froalaEmojiPicker.hidePopup();
+                this.emojiPicker.hidePopup();
             }
         }
     });
@@ -214,10 +214,10 @@ $(function () {
      * pop-up. This command will insert the emoji character into the HTML at the
      * current cursor point and then hide the pop-up.
      */
-    $.FroalaEditor.RegisterCommand('froalaEmojiPicker.insertEmoji', {
+    $.FroalaEditor.RegisterCommand('emojiPicker.insertEmoji', {
         callback (cmd, emoji) {
             this.html.insert(emoji);
-            this.froalaEmojiPicker.hidePopup();
+            this.emojiPicker.hidePopup();
         }
     });
 
@@ -226,11 +226,11 @@ $(function () {
      * the pop-up. This will update the pop-up to show the emoji's for that
      * category.
      */
-    $.FroalaEditor.RegisterCommand('froalaEmojiPicker.setCategory', {
+    $.FroalaEditor.RegisterCommand('emojiPicker.setCategory', {
         undo: false,
         focus: false,
         callback (cmd, category) {
-            this.froalaEmojiPicker.setSelectedCategory(category);
+            this.emojiPicker.setSelectedCategory(category);
         }
     });
 });
