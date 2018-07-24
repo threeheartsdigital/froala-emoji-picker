@@ -1,5 +1,5 @@
 {
-  "name": "threeheartsdigital/froala-emoji-picker",
+  "name": "froala-emoji-picker",
   "version": "1.0.0",
   "scripts": {
     "dev": "npm run development",
