@@ -1,7 +1,7 @@
 # Emojis
 An more complete emoji picker for the Froala WYSIWYG editor - includes 1097 Emojis organised into 8 categories.
 
-![Emoji picker](https://i.imgur.com/114lzWn.png)
+![Emoji picker](https://i.imgur.com/1EMuSUH.png)
 
 ### Usage
 
