@@ -1,59 +1,59 @@
 $highlight: #81409b;
 
 .emoji-picker {
-  height: 200px;
-  width: 290px;
-  overflow: scroll;
-  color: #222427;
-  border: 1px solid #d9d9d9;
-  background: #fff;
-  z-index: 5;
-
-  .emoji {
-    display: inline-block;
-    font-size: 24px;
-    width: 24px;
-    padding: 6px;
-    line-height: 1;
-    cursor: default;
-    font-weight: 400;
-    font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
-    box-sizing: content-box;
-  }
-
-  .emoji-categories {
-    border-bottom: 1px solid #d9d9d9;
-  }
-
-  .emoji-category {
-    padding: 4px;
-    line-height: 14px;
-    display: inline-block;
-
-    &:hover {
-      border-bottom: 3px solid #ebebeb;
-    }
-
-    &__active {
-      border-bottom: 3px solid $highlight!important;
-
-      svg {
-        fill: $highlight!important;
-      }
-    }
-
-    svg {
-      fill: #858585;
-      max-height: 16px;
-
-      &:hover {
-        fill: #000;
-      }
-    }
-  }
-
-  .emoji-container {
-    height: 170px;
+    height: 200px;
+    width: 290px;
     overflow: scroll;
-  }
+    color: #222427;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    z-index: 5;
+
+    .emoji {
+        display: inline-block;
+        font-size: 24px;
+        width: 24px;
+        padding: 6px;
+        line-height: 1;
+        cursor: default;
+        font-weight: 400;
+        font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
+        box-sizing: content-box;
+    }
+
+    .emoji-categories {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    .emoji-category {
+        padding: 4px;
+        line-height: 14px;
+        display: inline-block;
+
+        &:hover {
+            border-bottom: 3px solid #ebebeb;
+        }
+
+        &__active {
+            border-bottom: 3px solid $highlight!important;
+
+            svg {
+                fill: $highlight!important;
+            }
+        }
+
+        svg {
+            fill: #858585;
+            max-height: 16px;
+
+            &:hover {
+                fill: #000;
+            }
+        }
+    }
+
+    .emoji-container {
+        height: 170px;
+        overflow: scroll;
+    }
 }
