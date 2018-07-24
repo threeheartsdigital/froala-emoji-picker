@@ -8,7 +8,6 @@ An more complete emoji picker for the Froala WYSIWYG editor - includes 1097 Emoj
 Include the CSS and JS files along with your Froala scripts:
 ```
 <script src="./build/emojis.min.js"></script>
-<script src="./build/emojis.min.js"></script>
 <link href="./build/emojis.min.css" rel="stylesheet" />
 ```
 And simply register the Emojis button in your toolbar menu's:
