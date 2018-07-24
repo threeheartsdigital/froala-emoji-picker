@@ -1,5 +1,5 @@
 # Emojis
-An more complete emoji picker for the Froala WYSIWYG editor - includes 1097 Emojis organised into 8 categories.
+An more complete emoji picker for the Froala WYSIWYG editor - includes 1,097 Emojis organised into 8 categories.
 
 ![Emoji picker](https://i.imgur.com/1EMuSUH.png)
 
@@ -10,11 +10,11 @@ Include the CSS and JS files along with your Froala scripts:
 <script src="./build/emojis.min.js"></script>
 <link href="./build/emojis.min.css" rel="stylesheet" />
 ```
-And simply register the Emojis button in your toolbar menu's:
+And simply register the Emojis button in your toolbar menu:
 
 ```
 $('#froala-editor').froalaEditor({
-  toolbarButtons: ['undo', 'redo' , 'emojis']
+    toolbarButtons: ['undo', 'redo' , 'emojis']
 })
 ``` 
 
