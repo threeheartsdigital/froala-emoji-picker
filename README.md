@@ -1,5 +1,5 @@
 # Emojis
-An more complete emoji picker for the Froala WYSIWYG editor - includes 1,097 Emojis organised into 8 categories.
+An more complete emoji picker for the Froala WYSIWYG editor - includes 1,097 Emojis organised into 8 categories. Originally developed for [emailoctopus.com](https://emailoctopus), a low cost email marketing platform.
 
 ![Emoji picker](https://i.imgur.com/1EMuSUH.png)
 
@@ -18,6 +18,6 @@ $('#froala-editor').froalaEditor({
 })
 ``` 
 
-
 ### License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
+
