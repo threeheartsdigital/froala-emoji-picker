@@ -195,7 +195,7 @@
                 return category.id === categoryId;
             })[0];
 
-            editor.popups.refresh('emojis');
+            this.refreshPopup();
         };
 
         return {
